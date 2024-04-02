@@ -21,14 +21,14 @@ import { UpdateUserDTO } from '../dto/update-user.dto';
 @ApiTags('User')
 @UsePipes(new ValidationPipe({ transform: true }))
 @ApiSecurity('auth')
-@UseGuards(JWTAuthGuard)
+// @UseGuards(JWTAuthGuard)
 export class UserController {
   constructor(private readonly _usrService: UserService) {}
 
 
   @Post('/')
   @ApiOperation({ summary: 'create a new user' })
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   async create(@Body() user: CreateUserDto) {
     return await this._usrService.createUser(user);
   }
